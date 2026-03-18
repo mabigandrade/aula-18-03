@@ -2,7 +2,6 @@
 #include <math.h>
 #include <locale.h>
 
-// Protótipos
 void exercicio27(void);
 void exercicio28(void);
 void exercicio29(void);
@@ -25,7 +24,6 @@ int main()
     setlocale(LC_ALL, "");
 
     do {
-        printf("\n=== MENU PRINCIPAL - ATIVIDADE 2 ===\n");
         printf("27 - Calculo da Diferenca entre Dois Numeros Inteiros\n");
         printf("28 - Classificacao de Numero Positivo ou Negativo\n");
         printf("29 - Calculo da Media e Verificacao de Aprovacao\n");
