@@ -2,6 +2,7 @@
 #include <math.h>
 #include <locale.h>
 
+// Protótipos
 void exercicio27(void);
 void exercicio28(void);
 void exercicio29(void);
@@ -24,6 +25,7 @@ int main()
     setlocale(LC_ALL, "");
 
     do {
+        printf("\n=== MENU PRINCIPAL - ATIVIDADE 2 ===\n");
         printf("27 - Calculo da Diferenca entre Dois Numeros Inteiros\n");
         printf("28 - Classificacao de Numero Positivo ou Negativo\n");
         printf("29 - Calculo da Media e Verificacao de Aprovacao\n");
@@ -182,7 +184,9 @@ void exercicio32(void)
     int n1, n2, n3, temp;
     printf("\n--- Exercicio 32 ---\n");
     printf("Digite tres numeros inteiros: ");
-    scanf("%d %d %d", &n1, &n2, &n3);
+    scanf("%d", &n1);
+    scanf("%d", &n2);
+    scanf("%d", &n3);
 
     if (n1 > n2) { temp = n1; n1 = n2; n2 = temp; }
     if (n1 > n3) { temp = n1; n1 = n3; n3 = temp; }
@@ -196,7 +200,10 @@ void exercicio33(void)
     int n1, n2, n3, n4;
     printf("\n--- Exercicio 33 ---\n");
     printf("Digite quatro numeros inteiros: ");
-    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+    scanf("%d", &n1);
+    scanf("%d", &n2);
+    scanf("%d", &n3);
+    scanf("%d", &n4);
 
     printf("Valores divisiveis por 2 e 3:\n");
     if (n1 % 2 == 0 && n1 % 3 == 0) printf("%d\n", n1);
@@ -210,7 +217,10 @@ void exercicio34(void)
     int n1, n2, n3, n4;
     printf("\n--- Exercicio 34 ---\n");
     printf("Digite quatro numeros inteiros: ");
-    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+    scanf("%d", &n1);
+    scanf("%d", &n2);
+    scanf("%d", &n3);
+    scanf("%d", &n4);
 
     printf("Valores divisiveis por 2 ou 3:\n");
     if (n1 % 2 == 0 || n1 % 3 == 0) printf("%d\n", n1);
@@ -221,17 +231,24 @@ void exercicio34(void)
 
 void exercicio35(void)
 {
-    int n1, n2, n3, n4, n5, maior, menor;
+    int n[5], maior, menor;
     printf("\n--- Exercicio 35 ---\n");
-    printf("Digite cinco numeros inteiros: ");
-    scanf("%d %d %d %d %d", &n1, &n2, &n3, &n4, &n5);
 
-    maior = menor = n1;
+    for(int i = 0; i < 5; i++) {
+        printf("Digite o %dº numero: ", i + 1);
+        if (scanf("%d", &n[i]) != 1) {
+            printf("Entrada invalida! Digite apenas numeros.\n");
+            while (getchar() != '\n');
+            i--;
+            continue;
+        }
+    }
 
-    if (n2 > maior) maior = n2; if (n2 < menor) menor = n2;
-    if (n3 > maior) maior = n3; if (n3 < menor) menor = n3;
-    if (n4 > maior) maior = n4; if (n4 < menor) menor = n4;
-    if (n5 > maior) maior = n5; if (n5 < menor) menor = n5;
+    maior = menor = n[0];
+    for(int i = 1; i < 5; i++) {
+        if (n[i] > maior) maior = n[i];
+        if (n[i] < menor) menor = n[i];
+    }
 
     printf("Maior valor: %d, Menor valor: %d\n", maior, menor);
 }
@@ -270,7 +287,7 @@ void exercicio38(void)
 
     if (valor <= 3)
         printf("%d\n", valor);
-    // Não imprime nada se valor > 3 (conforme enunciado)
+
 }
 
 void exercicio39(void)
@@ -289,7 +306,9 @@ void exercicio40(void)
     int v1, v2, v3, soma;
     printf("\n--- Exercicio 40 ---\n");
     printf("Digite tres valores inteiros: ");
-    scanf("%d %d %d", &v1, &v2, &v3);
+    scanf("%d", &v1);
+    scanf("%d", &v2);
+    scanf("%d", &v3);
 
     soma = v1 + v2 + v3;
     if (soma > 100)
